@@ -130,6 +130,7 @@ class PCA9685:
 
     # Registers:
     mode1_reg = UnaryStruct(0x00, "<B")
+    mode2_reg = UnaryStruct(0x01, "<B")
     prescale_reg = UnaryStruct(0xFE, "<B")
     pwm_regs = StructArray(0x06, "<HH", 16)
 
@@ -144,6 +145,7 @@ class PCA9685:
     def reset(self):
         """Reset the chip."""
         self.mode1_reg = 0x00  # Mode1
+        self.mode2_reg = 0x14  # Mode2 reg reset
 
     @property
     def frequency(self):
